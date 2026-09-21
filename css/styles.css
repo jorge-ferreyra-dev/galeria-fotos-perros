@@ -1,0 +1,168 @@
+/*Reset basico*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+/*Estilos base del body*/
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/*Variables para colores con HSL*/
+:root {
+    /* Color primario base usando HSL */
+        --color-primario: hsl(220, 80% , 50%);
+    /* Variación clara del color primario */
+        --color-primario-claro: hsl(220,80%,75%);
+  /* Variación oscura del color primario */
+        --color-primario-oscuro: hsl(220, 80%, 25%);
+  /* Colores de texto y fondo */
+        --fondo-pagina: hsl(220, 20% , 95%);
+        --texto-principal: hsl(220, 50% , 10%);
+        --texto-secundario: hsl(220, 50%, 25%);
+        --texto-terciario: hsl(220 , 50%, 85%);    
+  /* Espaciado */
+        --espaciado-xs: 0.25rem;
+        --espaciado-sm: 0.5rem;
+        --espaciado-md: 1rem;
+        --espaciado-lg: 2rem;
+        --espaciado-xl: 4rem;
+}
+
+/*Documentacion HSL
+    1. ¿Qué significa cada valor en hsl()?
+    - H (Hue): Matiz es un grado de valor en la rueda de colores que va de 0 a 360. Por ejemplo 0 y 360 es rojo, 120 es verde y 240 azul.
+    - S (Saturation): Saturacion es la intensidad de un color, este valor va del 0% al 100% donde 100% es el color puro sin tonos de grises, 50% color y 50% tono gris , aun se puede apreciar el color ,por ultimo 0% es totalmente gris ya no se puede ver el color
+    - L (Lightness): Luminosidad se la puede describir como la cantidad de luz que se le desea dar a un color , estas medidas van desde 0%(negro) , 50% (color puro) y al 100% (blanco).
+    2. ¿Por qué HSL puede ser más útil que HEX o RGB?
+    -HSL es una forma más intuitiva y humana de pensar en colores.
+    -Creacion de paleta de colores:
+        .Diferentes tonos del mismo color (variando lightness)
+        .Colores análogos (hues cercanos)
+        .Colores complementarios (opuestos en la rueda)
+    3. Ejemplo práctico: ¿Cuándo usarías HSL en un proyecto real?    
+    -Un ejemplo practico seria crear una paleta de colores para aplicar en una tarjeta , donde se establescan mediante variables varios colores , con un color base , que al cambiar su valor(por ejemplo el tono) se apliquen los cambios en el resto del los colores , haciendo esto mas practico sin necesidad de ir selector por selector cambiando los colores.    
+*/
+
+/* Header usando Flexbox */
+.header {
+    background-color: var(--fondo-pagina);
+    padding: var(--espaciado-md) var(--espaciado-lg);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.header-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--espaciado-xs) var(--espaciado-sm);
+    text-align: center;
+}
+
+.titulo-principal {
+    font-size: 3rem;
+    margin-bottom: var(--espaciado-lg);
+    color: var(--texto-principal);
+}
+
+.descripcion {
+    font-size: 2.5rem;
+    color: var(--texto-secundario);
+}
+
+/* Grid para la galería */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--espaciado-md) var(--espaciado-lg);
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: var(--espaciado-lg);
+}
+
+/* Estilos para las tarjetas */
+.foto-tarjeta {
+    background-color: var(--color-primario-claro);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.5s ease box-shadow 0.5s ease;
+    }
+
+.foto-tarjeta img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.foto-info {
+    padding: var(--espaciado-sm);
+}
+
+.foto-titulo {
+    font-size: 2rem;
+    margin-bottom: var(--espaciado-sm);
+    color: var(--texto-principal);
+    text-align: center;
+}
+
+.foto-descripcion {
+    font-size: 1.5rem;
+    color: var(--texto-secundario);
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* TODO: Efecto hover */
+.foto-tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 1px 2px 24px var(--color-primario-oscuro);
+}
+
+/* Estilos para el pie de pagina */
+.footer {
+    background-color: var(--color-primario-oscuro);
+    color: var(--texto-terciario);
+    text-align: center;
+    font-size: 2rem;
+    padding: var(--espaciado-sm) var(--espaciado-lg);
+    margin-top: var(--espaciado-lg);
+}
+
+/*Tablets */
+@media (max-width: 768px) {
+    .galeria {
+    grid-template-columns: repeat(2 , 1fr);
+}
+    .titulo-principal {
+    font-size: 2.5rem;
+    }
+}
+
+/*Móviles */
+@media (max-width: 480px) {
+    .galeria {
+    grid-template-columns: 1fr;
+    }
+
+    .titulo-principal {
+    font-size: 1.5rem;
+    }
+    .contenedor {
+    padding: var(--espaciado-sm) var(--espaciado-md);
+    }
+}
