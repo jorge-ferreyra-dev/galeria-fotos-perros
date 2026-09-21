@@ -12,12 +12,12 @@ En el proyecto se implemento HTML semántico para el index.html y en styles.css 
 
 # Estructura del proyecto
 
-galeria-fotos/
+comandos-git/
 │
 ├── index.html
-└── css/
-    └── styles.css 
+├── style.css
+└── README.md
 
 # Autor
-
+Jorge Ferreyra
 Proyecto realizado como práctica de CSS.
